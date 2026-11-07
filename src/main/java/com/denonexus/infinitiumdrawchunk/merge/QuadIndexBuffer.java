@@ -76,7 +76,15 @@ public final class QuadIndexBuffer {
         GL32C.glBindVertexArray(0);
 
         final int elements = primitiveCount * Geometry.ELEMENTS_PER_PRIMITIVE;
-        final ByteBuffer buffer = MemoryUtil.memAlloc((long) elements * Integer.BYTES);
+
+        // MemoryUtil.memAlloc so' aceita int (por isso o cast): calcula em long e recusa
+        // explicitamente em vez de estourar silenciosamente.
+        final long bytes = (long) elements * (long) Integer.BYTES;
+        if (bytes > Integer.MAX_VALUE) {
+            throw new IllegalStateException("Template de indices grande demais: " + bytes + " bytes");
+        }
+
+        final ByteBuffer buffer = MemoryUtil.memAlloc((int) bytes);
 
         try {
             for (int quad = 0; quad < primitiveCount; quad++) {
