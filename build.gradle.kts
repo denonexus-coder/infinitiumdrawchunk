@@ -17,6 +17,15 @@ base {
     version = Constants.MOD_VERSION
 }
 
+// Remapeamento de mixin identico ao do Sodium (comprovado em CI): sem annotation processor
+// legado; o loom gera o refmap com o proprio tiny-remapper.
+loom {
+    mixin {
+        defaultRefmapName = "infinitiumdrawchunk.refmap.json"
+        useLegacyMixinAp = false
+    }
+}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17

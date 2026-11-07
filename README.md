@@ -5,7 +5,7 @@
 > **Independente do Sodium** (sem fork, sem dependência, sem JNI, sem lib nativa).
 > Alvo: **Android / PowerVR Rogue GE8320** (`OpenGL ES 3.2 build 1.13@5776728`).
 
-**Status: F1 + F2 aplicados — build é feito EXCLUSIVAMENTE no CI (nunca local).**
+**Status: F1 + F2 ✅ CI verde (run `42387138446`) — F4-A (mixin + arena por região) em CI. Build é feito EXCLUSIVAMENTE no CI (nunca local).**
 
 ```bash
 gh run list   --repo denonexus-coder/infinitiumdrawchunk
@@ -70,10 +70,10 @@ malha do Sodium), GUI/options do Sodium, JNI, `libmobileglues.so`.
 
 | Fase | Entrega | Status |
 |---|---|---|
-| **F1** | Esqueleto compila (loom 1.9.2, yarn 1.20.1, Java 17) | 🔄 **CI** |
-| **F2** | Fusão offline: teste prova `1000 → 1`, `gap → 2`, `sort → 1`, `window → 2` | 🔄 **CI** (JUnit) |
-| **F3** | `DrawEmitter` + `QuadIndexBuffer` na GPU real | ⬜ |
-| **F4** | Alimentador: **(A)** a mod assume o arena do terreno do vanilla ou **(B)** expõe `submit()` para outros mods | ⬜ **decisão pendente** |
+| **F1** | Esqueleto compila (loom 1.9.2, yarn 1.20.1, Java 17) | ✅ CI run `42387138446` |
+| **F2** | Fusão offline: teste prova `1000 → 1`, `gap → 2`, `sort → 1`, `window → 2` | ✅ CI (10 JUnit) |
+| **F3** | `DrawEmitter` + `QuadIndexBuffer` na GPU real (GE8320) | ⬜ |
+| **F4-A** | Alimentador **drop-in**: mixins `renderLayer`/`getBuffer`/`upload`/`draw` + arena por região (sem Sodium) | 🔄 **CI** |
 | **F5** | Números finais + opções (`merge`, `sort`, `widen`) | ⬜ |
 
 ---
