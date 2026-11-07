@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "infinitiumdrawchunk",
+  "version": "${version}",
+  "name": "InfinitiumDrawChunk",
+  "description": "Emissao ultra-rapida de draws de chunks: dobra sub-draws contiguas em uma unica chamada de draw (baseVertex contiguo no mesmo buffer de indices).",
+  "authors": [
+    "denonexus-coder"
+  ],
+  "contact": {
+    "source": "https://github.com/denonexus-coder/infinitiumdrawchunk"
+  },
+  "license": "PolyForm-Shield-1.0.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.denonexus.infinitiumdrawchunk.InfinitiumDrawChunk"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.20.1",
+    "java": ">=17"
+  }
+}
